@@ -14,6 +14,8 @@
 		04E40F7B2133AADA008DE865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E40F7A2133AADA008DE865 /* Assets.xcassets */; };
 		04E40F7E2133AADA008DE865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E40F7C2133AADA008DE865 /* LaunchScreen.storyboard */; };
 		04E40F812133AADA008DE865 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E40F802133AADA008DE865 /* main.m */; };
+		04E40F8A2133CEEF008DE865 /* ColorGradientDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E40F892133CEEF008DE865 /* ColorGradientDemoViewController.m */; };
+		98001ED100B1CE314F6D7170 /* Pods_demos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21041C4E294CA4AAD58A642B /* Pods_demos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,11 @@
 		04E40F7D2133AADA008DE865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04E40F7F2133AADA008DE865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04E40F802133AADA008DE865 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04E40F882133CEEF008DE865 /* ColorGradientDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorGradientDemoViewController.h; sourceTree = "<group>"; };
+		04E40F892133CEEF008DE865 /* ColorGradientDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorGradientDemoViewController.m; sourceTree = "<group>"; };
+		21041C4E294CA4AAD58A642B /* Pods_demos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40F773EFD6F30E8A78E309D7 /* Pods-demos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demos.release.xcconfig"; path = "Pods/Target Support Files/Pods-demos/Pods-demos.release.xcconfig"; sourceTree = "<group>"; };
+		43F802D555C0D7EEA49915DB /* Pods-demos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demos/Pods-demos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98001ED100B1CE314F6D7170 /* Pods_demos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +54,8 @@
 			children = (
 				04E40F6D2133AADA008DE865 /* demos */,
 				04E40F6C2133AADA008DE865 /* Products */,
+				298A75AACA53BC613A5CC9E4 /* Pods */,
+				7428C896590F119ECF265F13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +74,7 @@
 				04E40F6F2133AADA008DE865 /* AppDelegate.m */,
 				04E40F712133AADA008DE865 /* ViewController.h */,
 				04E40F722133AADA008DE865 /* ViewController.m */,
+				04E40F872133CD90008DE865 /* 导航栏渐变 */,
 				04E40F742133AADA008DE865 /* Main.storyboard */,
 				04E40F7A2133AADA008DE865 /* Assets.xcassets */,
 				04E40F7C2133AADA008DE865 /* LaunchScreen.storyboard */,
@@ -74,6 +85,32 @@
 			path = demos;
 			sourceTree = "<group>";
 		};
+		04E40F872133CD90008DE865 /* 导航栏渐变 */ = {
+			isa = PBXGroup;
+			children = (
+				04E40F882133CEEF008DE865 /* ColorGradientDemoViewController.h */,
+				04E40F892133CEEF008DE865 /* ColorGradientDemoViewController.m */,
+			);
+			path = "导航栏渐变";
+			sourceTree = "<group>";
+		};
+		298A75AACA53BC613A5CC9E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43F802D555C0D7EEA49915DB /* Pods-demos.debug.xcconfig */,
+				40F773EFD6F30E8A78E309D7 /* Pods-demos.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7428C896590F119ECF265F13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21041C4E294CA4AAD58A642B /* Pods_demos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,9 +118,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04E40F842133AADA008DE865 /* Build configuration list for PBXNativeTarget "demos" */;
 			buildPhases = (
+				201C45EC9C59D79A90AA63DA /* [CP] Check Pods Manifest.lock */,
 				04E40F672133AADA008DE865 /* Sources */,
 				04E40F682133AADA008DE865 /* Frameworks */,
 				04E40F692133AADA008DE865 /* Resources */,
+				C3EA4F08E717AE2C1D6DDFF0 /* [CP] Embed Pods Frameworks */,
+				43B46AC009214D0308AD4D24 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,6 +180,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		201C45EC9C59D79A90AA63DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-demos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43B46AC009214D0308AD4D24 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-demos/Pods-demos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3EA4F08E717AE2C1D6DDFF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-demos/Pods-demos-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-demos/Pods-demos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04E40F672133AADA008DE865 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -148,6 +242,7 @@
 				04E40F732133AADA008DE865 /* ViewController.m in Sources */,
 				04E40F702133AADA008DE865 /* AppDelegate.m in Sources */,
 				04E40F812133AADA008DE865 /* main.m in Sources */,
+				04E40F8A2133CEEF008DE865 /* ColorGradientDemoViewController.m in Sources */,
 				04E40F792133AADA008DE865 /* demos.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +375,7 @@
 		};
 		04E40F852133AADA008DE865 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43F802D555C0D7EEA49915DB /* Pods-demos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -294,6 +390,7 @@
 		};
 		04E40F862133AADA008DE865 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40F773EFD6F30E8A78E309D7 /* Pods-demos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
