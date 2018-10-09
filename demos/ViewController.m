@@ -8,17 +8,24 @@
 
 #import "ViewController.h"
 #import "ColorGradientDemoViewController.h"
+#import "WKWebViewCtr.h"
+#import "DropDownEffectCtr.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *titleArrayM;
+
+@property (nonatomic, copy) NSMutableArray *arr;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArrayM=@[@"直播demo",@"观看直播demo",@"导航栏渐变demo"].mutableCopy;
+    
+
+    
+    self.titleArrayM=@[@"直播demo",@"观看直播demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo"].mutableCopy;
     
     self.title = @"Demos";
     [self.view addSubview:self.tableView];
@@ -99,12 +106,13 @@
             break;
         case 3:
         {
-            
+             [self.navigationController pushViewController:[[DropDownEffectCtr alloc]init] animated:YES];
         }
             break;
         case 4:
         {
             
+//            [self.navigationController pushViewController:[[WKWebViewCtr alloc]init] animated:YES];
         }
             break;
             

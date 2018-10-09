@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "BTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    BTabBarController *btVC = [[BTabBarController alloc]init];
+   [self.window makeKeyAndVisible];
+//    [UIApplication sharedApplication].keyWindow.rootViewController = btVC;
+     self.window.rootViewController = btVC;
+    //        UINavigationController *rootNavi = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    //        [ShareApplicationDelegate window].rootViewController = rootNavi;
+    
+    //        UIWindow *window = [[[UIApplication sharedApplication]delegate]window];
+    //        BTabBarController *lvc = [[BTabBarController alloc]init];
+    //        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lvc];
+    //
+    //        [window makeKeyAndVisible];
+    //        window.rootViewController = nav;
+    
+    
     return YES;
 }
 

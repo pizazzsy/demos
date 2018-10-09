@@ -23,17 +23,13 @@
     self.title = @"导航栏渐变色";
     [self.view addSubview:self.tableView];
     
-    self.view.backgroundColor = [UIColor greenColor];
-    //如果透明看到的就是绿色。然后在分别设置
-    
-    [self.navigationController.navigationBar setBackgroundImage:[self imageWithBgColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0]] forBarMetrics:UIBarMetricsDefault];
-    
+    [self.navigationController.navigationBar setBackgroundImage:[self imageWithBgColor:[UIColor clearColor]] forBarMetrics:UIBarMetricsDefault];
+
     [self.navigationController.navigationBar setShadowImage:[self imageWithBgColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0]]];
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
-
 {
-    //设置导航栏按钮颜色渐变
+    //设置导航栏按钮颜色渐变 
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:self.tableView.contentOffset.y];
     //设置导航栏标题颜色渐变
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:255 green:255 blue:255 alpha:self.tableView.contentOffset.y],NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
@@ -69,12 +65,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return 0.00001;
+    return 278.5;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    return [UIView new];
+    UIView * headView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 278.5)];
+    UIImageView *bgimg=[[UIImageView alloc]initWithFrame:headView.bounds];
+    [bgimg setImage:[UIImage imageNamed:@"topBG"]];
+    [headView addSubview:bgimg];
+    return headView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
