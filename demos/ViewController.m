@@ -24,7 +24,6 @@
     [super viewDidLoad];
     
 
-    
     self.titleArrayM=@[@"直播demo",@"观看直播demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo"].mutableCopy;
     
     self.title = @"Demos";
@@ -112,7 +111,7 @@
         case 4:
         {
             
-//            [self.navigationController pushViewController:[[WKWebViewCtr alloc]init] animated:YES];
+            [self.navigationController pushViewController:[[WKWebViewCtr alloc]init] animated:YES];
         }
             break;
             

@@ -171,7 +171,7 @@
                         
                                           configuration:config];
         
-//        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mallapi.tyxin.cn/dist/index.html#/home"]]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mallapi.tyxin.cn/dist/index.html#/home"]]];
         //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"www.baidu.com"]]];
         self.webView.navigationDelegate = self;
         self.webView.navigationDelegate=self;

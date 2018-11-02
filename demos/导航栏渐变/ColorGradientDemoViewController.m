@@ -27,6 +27,15 @@
 
     [self.navigationController.navigationBar setShadowImage:[self imageWithBgColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0]]];
 }
+-(void)viewWillDisappear:(BOOL)animated{
+     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:CNavBgColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+  
+    [self.navigationController.navigationBar setBarTintColor:CNavBgColor];
+    [self.navigationController.navigationBar setTintColor:CNavBgFontColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName :CNavBgFontColor, NSFontAttributeName : [UIFont systemFontOfSize:18]}];
+    
+
+}
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     //设置导航栏按钮颜色渐变 

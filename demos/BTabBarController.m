@@ -9,6 +9,7 @@
 #import "BTabBarController.h"
 #import "ViewController.h"
 #import "WKWebViewCtr.h"
+#import "WaterfallFlowCtr.h"
 
 @interface BTabBarController ()
 
@@ -20,24 +21,24 @@
     [super viewDidLoad];
     
     ViewController *vc = [[ViewController alloc] init];
-    UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:vc];
-    WKWebViewCtr *webv = [[WKWebViewCtr alloc] init];
+    baseNavigationController *nvc = [[baseNavigationController alloc]initWithRootViewController:vc];
+    WaterfallFlowCtr *bv = [[WaterfallFlowCtr alloc] init];
     
-      [webv.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mallapi.tyxin.cn/dist/index.html#/home"]]];
     
-    UINavigationController *nwvc = [[UINavigationController alloc]initWithRootViewController:webv];
+    
+    baseNavigationController *nwvc = [[baseNavigationController alloc]initWithRootViewController:bv];
     
   self.viewControllers = @[nvc, nwvc];
-    UITabBarItem *aItem = [[UITabBarItem alloc] initWithTitle:@"咨询" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
-    aItem.selectedImage = [[UIImage imageNamed:@""]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *aItem = [[UITabBarItem alloc] initWithTitle:@"Demo" image:[UIImage imageNamed:@"icon_tabbar_onsite"] selectedImage:[UIImage imageNamed:@"icon_tabbar_onsite_selected"]];
+    aItem.selectedImage = [[UIImage imageNamed:@"icon_tabbar_onsite_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [aItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateSelected];
     
-    UITabBarItem *bItem = [[UITabBarItem alloc] initWithTitle:@"设备" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
-    bItem.selectedImage = [[UIImage imageNamed:@""]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *bItem = [[UITabBarItem alloc] initWithTitle:@"瀑布流" image:[UIImage imageNamed:@"icon_tabbar_merchant_normal"] selectedImage:[UIImage imageNamed:@"icon_tabbar_merchant_selected"]];
+    bItem.selectedImage = [[UIImage imageNamed:@"icon_tabbar_merchant_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [bItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateSelected];
     
-    nvc.tabBarItem = bItem;
-    nwvc.tabBarItem = aItem;
+    nvc.tabBarItem = aItem;
+    nwvc.tabBarItem = bItem;
     // Do any additional setup after loading the view.
 }
 
