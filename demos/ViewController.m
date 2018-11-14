@@ -10,6 +10,7 @@
 #import "ColorGradientDemoViewController.h"
 #import "WKWebViewCtr.h"
 #import "DropDownEffectCtr.h"
+#import "ProgramManageCtr.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -22,12 +23,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 
-    self.titleArrayM=@[@"直播demo",@"观看直播demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo"].mutableCopy;
+    self.titleArrayM=@[@"直播demo",@"观看直播demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo",@"频道管理demo"].mutableCopy;
     
     self.title = @"Demos";
     [self.view addSubview:self.tableView];
+    
+    
+    
+//    UIButton*anniu=[UIButton buttonWithType:UIButtonTypeSystem];
+//    [anniu setFrame:CGRectMake(10, 400, 100, 30)];
+//    [anniu setTitle:@"anniu" forState:0];
+//    [anniu addTarget:self action:@selector(anniu) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:anniu];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -95,6 +104,7 @@
         case 1:
         {
 //            [self.navigationController pushViewController:[[PlayViewController alloc]init] animated:YES];
+//              NSLog(@"%@",self.titleArrayM[11]);
         }
             break;
         case 2:
@@ -112,6 +122,12 @@
         {
             
             [self.navigationController pushViewController:[[WKWebViewCtr alloc]init] animated:YES];
+        }
+            break;
+        case 5:
+        {
+            
+            [self.navigationController pushViewController:[[ProgramManageCtr alloc]init] animated:YES];
         }
             break;
             

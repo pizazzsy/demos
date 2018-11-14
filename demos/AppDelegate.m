@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BTabBarController.h"
+#import <Bugly/Bugly.h>
 
 @interface AppDelegate ()
 
@@ -33,6 +34,12 @@
     //        [window makeKeyAndVisible];
     //        window.rootViewController = nav;
     
+    //防止应用闪退
+//    [JJException configExceptionCategory:JJExceptionGuardAll];
+//    [JJException startGuardException];
+//    [JJException registerExceptionHandle:self];
+    
+     [Bugly startWithAppId:@"67e1b343b8"];
     
     return YES;
 }

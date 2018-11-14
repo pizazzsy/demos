@@ -28,12 +28,12 @@
     [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^{
         // Done
     }];
-   
+   [self.view addSubview:self.webView];
     // Do any additional setup after loading the view.
 }
 -(void)viewWillAppear:(BOOL)animated{
     
-      self.navigationController.navigationBarHidden=YES;
+//      self.navigationController.navigationBarHidden=YES;
 }
 
 #pragma WKUIDelegate代理事件
@@ -178,7 +178,7 @@
         self.webView.UIDelegate = self;
         //开了支持滑动返回
         self.webView.allowsBackForwardNavigationGestures = YES;
-        [self.view addSubview:self.webView];
+        
         //开了支持滑动返回
         self.webView.allowsBackForwardNavigationGestures = YES;
         //        self.webView.scrollView.bounces=NO;
