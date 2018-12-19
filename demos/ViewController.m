@@ -11,6 +11,8 @@
 #import "WKWebViewCtr.h"
 #import "DropDownEffectCtr.h"
 #import "ProgramManageCtr.h"
+#import "CustomAlterCtr.h"
+#import "TableviewCtr.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -24,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.titleArrayM=@[@"直播demo",@"观看直播demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo",@"频道管理demo"].mutableCopy;
+    self.titleArrayM=@[@"直播demo",@"观看直播demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo",@"频道管理demo",@"自定义弹窗",@"tableview头部悬浮"].mutableCopy;
     
     self.title = @"Demos";
     [self.view addSubview:self.tableView];
@@ -130,6 +132,19 @@
             [self.navigationController pushViewController:[[ProgramManageCtr alloc]init] animated:YES];
         }
             break;
+        case 6:
+        {
+            
+            [self.navigationController pushViewController:[[CustomAlterCtr alloc]init] animated:YES];
+        }
+            break;
+        case 7:
+        {
+            
+            [self.navigationController pushViewController:[[TableviewCtr alloc]init] animated:YES];
+        }
+            break;
+            
             
         default:
             break;
@@ -143,6 +158,7 @@
     }
     return _tableView;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04477A0421A502D600414AB5 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04477A0321A502D600414AB5 /* PopViewController.m */; };
+		04477A0821A5477000414AB5 /* TableviewCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 04477A0721A5477000414AB5 /* TableviewCtr.m */; };
 		0454C034215CDE99007E1053 /* BTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454C033215CDE99007E1053 /* BTabBarController.m */; };
 		046FC1E72134EB7900B35B8E /* DropDownEffectCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FC1E62134EB7900B35B8E /* DropDownEffectCtr.m */; };
 		04769EA52140FC5C00C77B39 /* WKWebViewCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 04769EA42140FC5C00C77B39 /* WKWebViewCtr.m */; };
+		0499FE06219EA7AE00F058E6 /* CustomAlterCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499FE05219EA7AE00F058E6 /* CustomAlterCtr.m */; };
+		0499FE07219EB0AB00F058E6 /* CustomAlter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499FE02219EA74700F058E6 /* CustomAlter.m */; };
 		04A0C2F9219528D100B8DC3A /* ProgramManageCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0C2F8219528D100B8DC3A /* ProgramManageCtr.m */; };
 		04A0C2FC21952DC600B8DC3A /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0C2FB21952DC600B8DC3A /* TestCell.m */; };
 		04A11330218698DD0041BB71 /* baseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A1132F218698DD0041BB71 /* baseNavigationController.m */; };
@@ -32,12 +36,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04477A0221A502D600414AB5 /* PopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
+		04477A0321A502D600414AB5 /* PopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
+		04477A0621A5477000414AB5 /* TableviewCtr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableviewCtr.h; sourceTree = "<group>"; };
+		04477A0721A5477000414AB5 /* TableviewCtr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableviewCtr.m; sourceTree = "<group>"; };
 		0454C032215CDE99007E1053 /* BTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTabBarController.h; sourceTree = "<group>"; };
 		0454C033215CDE99007E1053 /* BTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTabBarController.m; sourceTree = "<group>"; };
 		046FC1E52134EB7900B35B8E /* DropDownEffectCtr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DropDownEffectCtr.h; sourceTree = "<group>"; };
 		046FC1E62134EB7900B35B8E /* DropDownEffectCtr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropDownEffectCtr.m; sourceTree = "<group>"; };
 		04769EA32140FC5C00C77B39 /* WKWebViewCtr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewCtr.h; sourceTree = "<group>"; };
 		04769EA42140FC5C00C77B39 /* WKWebViewCtr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewCtr.m; sourceTree = "<group>"; };
+		0499FE02219EA74700F058E6 /* CustomAlter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAlter.m; sourceTree = "<group>"; };
+		0499FE03219EA74700F058E6 /* CustomAlter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAlter.h; sourceTree = "<group>"; };
+		0499FE04219EA7AE00F058E6 /* CustomAlterCtr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAlterCtr.h; sourceTree = "<group>"; };
+		0499FE05219EA7AE00F058E6 /* CustomAlterCtr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAlterCtr.m; sourceTree = "<group>"; };
 		04A0C2F7219528D100B8DC3A /* ProgramManageCtr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramManageCtr.h; sourceTree = "<group>"; };
 		04A0C2F8219528D100B8DC3A /* ProgramManageCtr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgramManageCtr.m; sourceTree = "<group>"; };
 		04A0C2FA21952DC600B8DC3A /* TestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
@@ -91,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04477A0521A545F800414AB5 /* Tableview头部悬浮样式 */ = {
+			isa = PBXGroup;
+			children = (
+				04477A0621A5477000414AB5 /* TableviewCtr.h */,
+				04477A0721A5477000414AB5 /* TableviewCtr.m */,
+			);
+			path = "Tableview头部悬浮样式";
+			sourceTree = "<group>";
+		};
 		046FC1E42134EAAB00B35B8E /* 下拉放大拉伸效果 */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +128,19 @@
 				04769EA42140FC5C00C77B39 /* WKWebViewCtr.m */,
 			);
 			path = "JS和OC交互";
+			sourceTree = "<group>";
+		};
+		0499FE01219EA73200F058E6 /* 自定义弹窗 */ = {
+			isa = PBXGroup;
+			children = (
+				0499FE03219EA74700F058E6 /* CustomAlter.h */,
+				0499FE02219EA74700F058E6 /* CustomAlter.m */,
+				0499FE04219EA7AE00F058E6 /* CustomAlterCtr.h */,
+				0499FE05219EA7AE00F058E6 /* CustomAlterCtr.m */,
+				04477A0221A502D600414AB5 /* PopViewController.h */,
+				04477A0321A502D600414AB5 /* PopViewController.m */,
+			);
+			path = "自定义弹窗";
 			sourceTree = "<group>";
 		};
 		04A0C2F62195287100B8DC3A /* 频道管理 */ = {
@@ -178,6 +212,8 @@
 		04E40F6D2133AADA008DE865 /* demos */ = {
 			isa = PBXGroup;
 			children = (
+				04477A0521A545F800414AB5 /* Tableview头部悬浮样式 */,
+				0499FE01219EA73200F058E6 /* 自定义弹窗 */,
 				04A0C2F62195287100B8DC3A /* 频道管理 */,
 				04A113382186A2FD0041BB71 /* 瀑布流 */,
 				04A1133621869CFE0041BB71 /* Define */,
@@ -366,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0499FE07219EB0AB00F058E6 /* CustomAlter.m in Sources */,
 				04A113452186AFF60041BB71 /* PersonModel.m in Sources */,
 				04A0C2FC21952DC600B8DC3A /* TestCell.m in Sources */,
 				04B4881D218BEF0E00394CF8 /* SimulatData.m in Sources */,
@@ -378,10 +415,13 @@
 				04E40F702133AADA008DE865 /* AppDelegate.m in Sources */,
 				04AC343B21830D2000E9C7E2 /* StartDemoViewController.m in Sources */,
 				04E40F812133AADA008DE865 /* main.m in Sources */,
+				04477A0821A5477000414AB5 /* TableviewCtr.m in Sources */,
 				04A11333218698FB0041BB71 /* baseViewController.m in Sources */,
+				0499FE06219EA7AE00F058E6 /* CustomAlterCtr.m in Sources */,
 				04E40F8A2133CEEF008DE865 /* ColorGradientDemoViewController.m in Sources */,
 				04A113422186AF630041BB71 /* WaterfallFlowCell.m in Sources */,
 				04A1133E2186A4B30041BB71 /* WaterFlowLayout.m in Sources */,
+				04477A0421A502D600414AB5 /* PopViewController.m in Sources */,
 				04E40F792133AADA008DE865 /* demos.xcdatamodeld in Sources */,
 				04769EA52140FC5C00C77B39 /* WKWebViewCtr.m in Sources */,
 			);

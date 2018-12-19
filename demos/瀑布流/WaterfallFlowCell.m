@@ -25,7 +25,6 @@
     if ([super initWithFrame:frame]) {
         self.backgroundColor=KWhiteColor;
         ViewRadius(self, 5);
-        NSLog(@"-------");
         _imgView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height-20)];
         _imgView.contentMode=UIViewContentModeScaleAspectFill;
         _imgView.clipsToBounds=YES;
