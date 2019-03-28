@@ -1,0 +1,36 @@
+PODS:
+  - Bugly (2.5.0)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.16)
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - Bugly
+  - Masonry
+  - MJRefresh
+  - SDWebImage
+  - YYKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Bugly
+    - Masonry
+    - MJRefresh
+    - SDWebImage
+    - YYKit
+
+SPEC CHECKSUMS:
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: fe8b1837aa3dd30aa0a1bdd20369562ee8d3ca5c
+
+COCOAPODS: 1.5.0

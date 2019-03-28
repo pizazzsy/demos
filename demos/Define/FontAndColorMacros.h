@@ -37,5 +37,6 @@
 
 
 #define FFont1 [UIFont systemFontOfSize:12.0f]
+#define RealValue(value) ((value)/375.0*[UIScreen mainScreen].bounds.size.width)
 
 #endif /* FontAndColorMacros_h */

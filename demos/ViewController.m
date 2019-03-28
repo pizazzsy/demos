@@ -13,6 +13,7 @@
 #import "ProgramManageCtr.h"
 #import "CustomAlterCtr.h"
 #import "TableviewCtr.h"
+#import "DropDownMenuViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -26,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.titleArrayM=@[@"直播demo",@"观看直播demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo",@"频道管理demo",@"自定义弹窗",@"tableview头部悬浮"].mutableCopy;
+    self.titleArrayM=@[@"直播demo",@"下拉列表demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo",@"频道管理demo",@"自定义弹窗",@"tableview头部悬浮"].mutableCopy;
     
     self.title = @"Demos";
     [self.view addSubview:self.tableView];
@@ -105,8 +106,7 @@
             break;
         case 1:
         {
-//            [self.navigationController pushViewController:[[PlayViewController alloc]init] animated:YES];
-//              NSLog(@"%@",self.titleArrayM[11]);
+            [self.navigationController pushViewController:[[DropDownMenuViewController alloc]init] animated:YES];
         }
             break;
         case 2:
