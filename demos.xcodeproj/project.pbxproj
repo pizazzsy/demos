@@ -32,8 +32,18 @@
 		04E40F7E2133AADA008DE865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E40F7C2133AADA008DE865 /* LaunchScreen.storyboard */; };
 		04E40F812133AADA008DE865 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E40F802133AADA008DE865 /* main.m */; };
 		04E40F8A2133CEEF008DE865 /* ColorGradientDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E40F892133CEEF008DE865 /* ColorGradientDemoViewController.m */; };
+		11635F4B22DC7C7200FC2D9A /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11635F4A22DC7C7200FC2D9A /* PushKit.framework */; };
+		11657F3F22D7156F006FA12D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11657F3E22D7156F006FA12D /* ChatViewController.m */; };
+		11770FDF22D83111009987AB /* ChatViewCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 11770FDE22D83111009987AB /* ChatViewCtr.m */; };
+		1190DBBF229F9DD100D8FCC1 /* FileOperationCtr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190DBBE229F9DD100D8FCC1 /* FileOperationCtr.m */; };
+		1190DBC1229F9F4E00D8FCC1 /* cmdlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1190DBC0229F9F4E00D8FCC1 /* cmdlist.txt */; };
+		1190DBC4229FC2EB00D8FCC1 /* CmdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1190DBC3229FC2EB00D8FCC1 /* CmdModel.m */; };
 		11A431F9224C8D9900A606B4 /* DropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A431F6224C8D9900A606B4 /* DropdownMenu.m */; };
 		11A431FA224C8D9900A606B4 /* DropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A431F8224C8D9900A606B4 /* DropDownMenuViewController.m */; };
+		11A748132251E388002E9E01 /* NSDictionary expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A7480F2251E388002E9E01 /* NSDictionary expanded.m */; };
+		11A748142251E388002E9E01 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 11A748102251E388002E9E01 /* README.md */; };
+		11A748152251E388002E9E01 /* SocketHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A748122251E388002E9E01 /* SocketHelper.m */; };
+		11A748182251E607002E9E01 /* SoketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A748172251E607002E9E01 /* SoketViewController.m */; };
 		A2D2CC6E7A744A4134A7EE9B /* libPods-demos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0050D057CE35136671FBE3B1 /* libPods-demos.a */; };
 /* End PBXBuildFile section */
 
@@ -89,10 +99,28 @@
 		04E40F802133AADA008DE865 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04E40F882133CEEF008DE865 /* ColorGradientDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorGradientDemoViewController.h; sourceTree = "<group>"; };
 		04E40F892133CEEF008DE865 /* ColorGradientDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorGradientDemoViewController.m; sourceTree = "<group>"; };
+		11635F4A22DC7C7200FC2D9A /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
+		11657F3D22D7156F006FA12D /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		11657F3E22D7156F006FA12D /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		11770FDD22D83111009987AB /* ChatViewCtr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewCtr.h; sourceTree = "<group>"; };
+		11770FDE22D83111009987AB /* ChatViewCtr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewCtr.m; sourceTree = "<group>"; };
+		11770FE022D865CD009987AB /* demos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = demos.entitlements; sourceTree = "<group>"; };
+		1190DBBD229F9DD100D8FCC1 /* FileOperationCtr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileOperationCtr.h; sourceTree = "<group>"; };
+		1190DBBE229F9DD100D8FCC1 /* FileOperationCtr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileOperationCtr.m; sourceTree = "<group>"; };
+		1190DBC0229F9F4E00D8FCC1 /* cmdlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmdlist.txt; sourceTree = "<group>"; };
+		1190DBC2229FC2EB00D8FCC1 /* CmdModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CmdModel.h; sourceTree = "<group>"; };
+		1190DBC3229FC2EB00D8FCC1 /* CmdModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CmdModel.m; sourceTree = "<group>"; };
 		11A431F5224C8D9900A606B4 /* DropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenu.h; sourceTree = "<group>"; };
 		11A431F6224C8D9900A606B4 /* DropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenu.m; sourceTree = "<group>"; };
 		11A431F7224C8D9900A606B4 /* DropDownMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownMenuViewController.h; sourceTree = "<group>"; };
 		11A431F8224C8D9900A606B4 /* DropDownMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenuViewController.m; sourceTree = "<group>"; };
+		11A7480E2251E388002E9E01 /* NSDictionary expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary expanded.h"; sourceTree = "<group>"; };
+		11A7480F2251E388002E9E01 /* NSDictionary expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary expanded.m"; sourceTree = "<group>"; };
+		11A748102251E388002E9E01 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		11A748112251E388002E9E01 /* SocketHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketHelper.h; sourceTree = "<group>"; };
+		11A748122251E388002E9E01 /* SocketHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketHelper.m; sourceTree = "<group>"; };
+		11A748162251E607002E9E01 /* SoketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoketViewController.h; sourceTree = "<group>"; };
+		11A748172251E607002E9E01 /* SoketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoketViewController.m; sourceTree = "<group>"; };
 		40F773EFD6F30E8A78E309D7 /* Pods-demos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demos.release.xcconfig"; path = "Pods/Target Support Files/Pods-demos/Pods-demos.release.xcconfig"; sourceTree = "<group>"; };
 		43F802D555C0D7EEA49915DB /* Pods-demos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demos/Pods-demos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11635F4B22DC7C7200FC2D9A /* PushKit.framework in Frameworks */,
 				A2D2CC6E7A744A4134A7EE9B /* libPods-demos.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +247,10 @@
 		04E40F6D2133AADA008DE865 /* demos */ = {
 			isa = PBXGroup;
 			children = (
+				11770FE022D865CD009987AB /* demos.entitlements */,
+				11657F3C22D7152C006FA12D /* 即时通讯 */,
+				1190DBBC229F9D6500D8FCC1 /* 文件读取 */,
+				11A7480D2251E388002E9E01 /* SocketHelp */,
 				11A431F3224C8D9900A606B4 /* 下拉列表 */,
 				04477A0521A545F800414AB5 /* Tableview头部悬浮样式 */,
 				0499FE01219EA73200F058E6 /* 自定义弹窗 */,
@@ -242,6 +275,7 @@
 				04E40F7F2133AADA008DE865 /* Info.plist */,
 				04E40F802133AADA008DE865 /* main.m */,
 				04A1133521869A160041BB71 /* PrefixHeader.pch */,
+				1190DBC0229F9F4E00D8FCC1 /* cmdlist.txt */,
 				04E40F772133AADA008DE865 /* demos.xcdatamodeld */,
 			);
 			path = demos;
@@ -254,6 +288,28 @@
 				04E40F892133CEEF008DE865 /* ColorGradientDemoViewController.m */,
 			);
 			path = "导航栏渐变";
+			sourceTree = "<group>";
+		};
+		11657F3C22D7152C006FA12D /* 即时通讯 */ = {
+			isa = PBXGroup;
+			children = (
+				11657F3D22D7156F006FA12D /* ChatViewController.h */,
+				11657F3E22D7156F006FA12D /* ChatViewController.m */,
+				11770FDD22D83111009987AB /* ChatViewCtr.h */,
+				11770FDE22D83111009987AB /* ChatViewCtr.m */,
+			);
+			path = "即时通讯";
+			sourceTree = "<group>";
+		};
+		1190DBBC229F9D6500D8FCC1 /* 文件读取 */ = {
+			isa = PBXGroup;
+			children = (
+				1190DBBD229F9DD100D8FCC1 /* FileOperationCtr.h */,
+				1190DBBE229F9DD100D8FCC1 /* FileOperationCtr.m */,
+				1190DBC2229FC2EB00D8FCC1 /* CmdModel.h */,
+				1190DBC3229FC2EB00D8FCC1 /* CmdModel.m */,
+			);
+			path = "文件读取";
 			sourceTree = "<group>";
 		};
 		11A431F3224C8D9900A606B4 /* 下拉列表 */ = {
@@ -275,6 +331,20 @@
 			path = DropdownMenu;
 			sourceTree = "<group>";
 		};
+		11A7480D2251E388002E9E01 /* SocketHelp */ = {
+			isa = PBXGroup;
+			children = (
+				11A7480E2251E388002E9E01 /* NSDictionary expanded.h */,
+				11A7480F2251E388002E9E01 /* NSDictionary expanded.m */,
+				11A748102251E388002E9E01 /* README.md */,
+				11A748112251E388002E9E01 /* SocketHelper.h */,
+				11A748122251E388002E9E01 /* SocketHelper.m */,
+				11A748162251E607002E9E01 /* SoketViewController.h */,
+				11A748172251E607002E9E01 /* SoketViewController.m */,
+			);
+			path = SocketHelp;
+			sourceTree = "<group>";
+		};
 		298A75AACA53BC613A5CC9E4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +357,7 @@
 		7428C896590F119ECF265F13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				11635F4A22DC7C7200FC2D9A /* PushKit.framework */,
 				0050D057CE35136671FBE3B1 /* libPods-demos.a */,
 			);
 			name = Frameworks;
@@ -325,7 +396,15 @@
 				TargetAttributes = {
 					04E40F6A2133AADA008DE865 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -354,7 +433,9 @@
 			files = (
 				04E40F7E2133AADA008DE865 /* LaunchScreen.storyboard in Resources */,
 				04E40F7B2133AADA008DE865 /* Assets.xcassets in Resources */,
+				11A748142251E388002E9E01 /* README.md in Resources */,
 				04E40F762133AADA008DE865 /* Main.storyboard in Resources */,
+				1190DBC1229F9F4E00D8FCC1 /* cmdlist.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,10 +468,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-demos/Pods-demos-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RongCloud.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCColor.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -404,15 +497,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A748132251E388002E9E01 /* NSDictionary expanded.m in Sources */,
 				0499FE07219EB0AB00F058E6 /* CustomAlter.m in Sources */,
+				11657F3F22D7156F006FA12D /* ChatViewController.m in Sources */,
 				04A113452186AFF60041BB71 /* PersonModel.m in Sources */,
 				04A0C2FC21952DC600B8DC3A /* TestCell.m in Sources */,
 				04B4881D218BEF0E00394CF8 /* SimulatData.m in Sources */,
 				04A11330218698DD0041BB71 /* baseNavigationController.m in Sources */,
+				11770FDF22D83111009987AB /* ChatViewCtr.m in Sources */,
 				0454C034215CDE99007E1053 /* BTabBarController.m in Sources */,
+				1190DBBF229F9DD100D8FCC1 /* FileOperationCtr.m in Sources */,
 				04E40F732133AADA008DE865 /* ViewController.m in Sources */,
 				046FC1E72134EB7900B35B8E /* DropDownEffectCtr.m in Sources */,
 				11A431FA224C8D9900A606B4 /* DropDownMenuViewController.m in Sources */,
+				1190DBC4229FC2EB00D8FCC1 /* CmdModel.m in Sources */,
 				04A0C2F9219528D100B8DC3A /* ProgramManageCtr.m in Sources */,
 				04A1133B2186A3460041BB71 /* WaterfallFlowCtr.m in Sources */,
 				04E40F702133AADA008DE865 /* AppDelegate.m in Sources */,
@@ -420,6 +518,7 @@
 				11A431F9224C8D9900A606B4 /* DropdownMenu.m in Sources */,
 				04E40F812133AADA008DE865 /* main.m in Sources */,
 				04477A0821A5477000414AB5 /* TableviewCtr.m in Sources */,
+				11A748182251E607002E9E01 /* SoketViewController.m in Sources */,
 				04A11333218698FB0041BB71 /* baseViewController.m in Sources */,
 				0499FE06219EA7AE00F058E6 /* CustomAlterCtr.m in Sources */,
 				04E40F8A2133CEEF008DE865 /* ColorGradientDemoViewController.m in Sources */,
@@ -427,6 +526,7 @@
 				04A1133E2186A4B30041BB71 /* WaterFlowLayout.m in Sources */,
 				04477A0421A502D600414AB5 /* PopViewController.m in Sources */,
 				04E40F792133AADA008DE865 /* demos.xcdatamodeld in Sources */,
+				11A748152251E388002E9E01 /* SocketHelper.m in Sources */,
 				04769EA52140FC5C00C77B39 /* WKWebViewCtr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,16 +662,20 @@
 			baseConfigurationReference = 43F802D555C0D7EEA49915DB /* Pods-demos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = demos/demos.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = GFS3R4HDME;
+				DEVELOPMENT_TEAM = QY5DEZABQ9;
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/demos/PrefixHeader.pch";
 				INFOPLIST_FILE = demos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shiyong.demos.demos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gridlink.smarthomephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = smarthomephoneDevelopmentProfileName;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
@@ -582,15 +686,19 @@
 			baseConfigurationReference = 40F773EFD6F30E8A78E309D7 /* Pods-demos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GFS3R4HDME;
+				CODE_SIGN_ENTITLEMENTS = demos/demos.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = QY5DEZABQ9;
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/demos/PrefixHeader.pch";
 				INFOPLIST_FILE = demos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shiyong.demos.demos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gridlink.smarthomephone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ProductionTestProfile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};

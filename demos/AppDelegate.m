@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import "BTabBarController.h"
 #import <Bugly/Bugly.h>
+#import <PushKit/PushKit.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<RCConnectionStatusChangeDelegate,RCIMReceiveMessageDelegate,RCIMUserInfoDataSource,PKPushRegistryDelegate>
 
 @end
 
@@ -21,30 +22,101 @@
     // Override point for customization after application launch.
     
     BTabBarController *btVC = [[BTabBarController alloc]init];
-   [self.window makeKeyAndVisible];
-//    [UIApplication sharedApplication].keyWindow.rootViewController = btVC;
-     self.window.rootViewController = btVC;
-    //        UINavigationController *rootNavi = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
-    //        [ShareApplicationDelegate window].rootViewController = rootNavi;
+    [self.window makeKeyAndVisible];
+    self.window.rootViewController = btVC;
+
     
-    //        UIWindow *window = [[[UIApplication sharedApplication]delegate]window];
-    //        BTabBarController *lvc = [[BTabBarController alloc]init];
-    //        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lvc];
-    //
-    //        [window makeKeyAndVisible];
-    //        window.rootViewController = nav;
+    [Bugly startWithAppId:@"67e1b343b8"];
     
-    //防止应用闪退
-//    [JJException configExceptionCategory:JJExceptionGuardAll];
-//    [JJException startGuardException];
-//    [JJException registerExceptionHandle:self];
-    
-     [Bugly startWithAppId:@"67e1b343b8"];
-    
+    [self RongCloudIMConfig];
+    [self PushConfig:application];
+   
     return YES;
 }
+//初始化融云SDK并
+-(void)RongCloudIMConfig{
+//     NSString*token=@"EqTw+3hSJ3yueQPs6ugNhuRaIz1bkaOKFNGuScijx7lKhnps3RW6SQezWAZswTDYr2CqoiyNU8gph32GIqA3cw==";//789456
+        NSString*token=@"Gk7kC/Q+ym/arn193zwxsuetBHUbqfBT7BxSq5Y1ZV/k/ZggG8XOuA6nFcavARjNvpYTMtgfyVdj03TaszEbtw==";//456789
+    [[RCIM sharedRCIM] initWithAppKey:@"8brlm7uf8j5h3"];
+    [[RCIM sharedRCIM] setUserInfoDataSource:self];
+    [RCIM sharedRCIM].receiveMessageDelegate = self;
+    [RCIMClient sharedRCIMClient].logLevel=RC_Log_Level_Verbose;
+    [[RCIM sharedRCIM] connectWithToken:token     success:^(NSString *userId) {
+        NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+    } error:^(RCConnectErrorCode status) {
+        NSLog(@"登陆的错误码为:%ld", (long)status);
+    } tokenIncorrect:^{
+        NSLog(@"token错误");
+    }];
+}
+//注册Voip服务
+-(void)RegistryVoipToken{
+        PKPushRegistry *pushRegistry = [[PKPushRegistry alloc]  initWithQueue:dispatch_get_main_queue()];
+        pushRegistry.delegate = self;
+        pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
+}
+-(void)PushConfig:(UIApplication *)application{
+    if ([application
+         respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        //注册推送, 用于iOS8以及iOS8之后的系统
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings
+                                                settingsForTypes:(UIUserNotificationTypeBadge |
+                                                                  UIUserNotificationTypeSound |
+                                                                  UIUserNotificationTypeAlert)
+                                                categories:nil];
+        [application registerUserNotificationSettings:settings];
+    } else {
+        //注册推送，用于iOS8之前的系统
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge |
+        UIRemoteNotificationTypeAlert |
+        UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
+}
+//- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
+//    NSString *str = [NSString stringWithFormat:@"%@",credentials.token];
+//    NSString *voipToken = [[[str stringByReplacingOccurrencesOfString:@"<" withString:@""]
+//                           stringByReplacingOccurrencesOfString:@">" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    [[NSUserDefaults standardUserDefaults] setObject:voipToken forKey:@"rcVoIPDeviceToken"];
+//    //上传token处理
+//}
 
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [application registerForRemoteNotifications];
+}
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSString *token =[[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<" withString:@""] stringByReplacingOccurrencesOfString:@">" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    [[RCIMClient sharedRCIMClient] setDeviceToken:token];
+}
 
+- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion
+{
+    //通过代理方法获得的userid去获取详细信息（）
+    RCUserInfo *user = [[RCUserInfo alloc]init];
+    user.userId = userId;
+    user.name =userId;
+    user.portraitUri = @"头像";
+    return completion(user);
+}
+-(void)onConnectionStatusChanged:(RCConnectionStatus)status{
+    if (status == ConnectionStatus_Connected) {
+        NSLog(@"融云服务器连接成功!");
+    } else  {
+        if (status == ConnectionStatus_SignUp) {
+            NSLog(@"融云服务器断开连接!");
+        } else {
+            NSLog(@"融云服务器连接失败!");
+        }
+    }
+}
+- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left{
+    if ([message.content isMemberOfClass:[RCTextMessage class]]) {
+        RCTextMessage *testMessage = (RCTextMessage *)message.content;
+        NSLog(@"消息内容：%@", testMessage.content);
+    }
+    NSLog(@"还剩余的未接收的消息数：%d", left);
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

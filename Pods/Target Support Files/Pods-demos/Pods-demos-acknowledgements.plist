@@ -25,6 +25,22 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Public Domain License
+
+The CocoaAsyncSocket project is in the public domain.
+
+The original TCP version (AsyncSocket) was created by Dustin Voss in January 2003.
+Updated and maintained by Deusty LLC and the Apple development community.
+</string>
+			<key>License</key>
+			<string>public domain</string>
+			<key>Title</key>
+			<string>CocoaAsyncSocket</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright (c) 2013-2015 MJRefresh (https://github.com/CoderMJLee/MJRefresh)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -82,7 +98,27 @@ THE SOFTWARE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright (c) 2009-2017 Olivier Poitrey rs@dailymotion.com
+			<string>Copyright 2014 Rong Cloud</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>RongCloudIM</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright 2018 RongCloud</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>RongCloudRTC</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright (c) 2009-2018 Olivier Poitrey rs@dailymotion.com
  
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

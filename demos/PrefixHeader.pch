@@ -20,6 +20,10 @@
 #import "YYKit.h"
 #import "MJRefresh.h"
 #import "UIImageView+WebCache.h"
+#import <RongIMKit/RongIMKit.h>
+#import <RongIMLib/RongIMLib.h>
+#import <RongCallKit/RongCallKit.h>
+#import <RongCallLib/RongCallLib.h>
 
 
 #endif /* PrefixHeader_pch */

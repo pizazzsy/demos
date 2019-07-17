@@ -14,6 +14,9 @@
 #import "CustomAlterCtr.h"
 #import "TableviewCtr.h"
 #import "DropDownMenuViewController.h"
+#import "SoketViewController.h"
+#import "FileOperationCtr.h"
+#import "ChatViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -27,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.titleArrayM=@[@"直播demo",@"下拉列表demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo",@"频道管理demo",@"自定义弹窗",@"tableview头部悬浮"].mutableCopy;
+    self.titleArrayM=@[@"wifidemo",@"下拉列表demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo",@"频道管理demo",@"自定义弹窗",@"tableview头部悬浮",@"文件读取",@"即时聊天"].mutableCopy;
     
     self.title = @"Demos";
     [self.view addSubview:self.tableView];
@@ -101,7 +104,7 @@
     switch (indexPath.row) {
         case 0:
         {
-//            [self.navigationController pushViewController:[[liveCtrViewController alloc]init] animated:YES];
+            [self.navigationController pushViewController:[[SoketViewController alloc]init] animated:YES];
         }
             break;
         case 1:
@@ -144,7 +147,32 @@
             [self.navigationController pushViewController:[[TableviewCtr alloc]init] animated:YES];
         }
             break;
+        case 8:
+        {
+            [self.navigationController pushViewController:[[FileOperationCtr alloc]init] animated:YES];
+        }
+            break;
+        case 9:
+        {
+            ChatViewController*chatCtr=[[ChatViewController alloc]init];
+//            //设置要显示的会话类型
+//            [chatCtr setDisplayConversationTypes:@[
+//                                                @(ConversationType_PRIVATE),
+//                                                @(ConversationType_DISCUSSION),
+//                                                @(ConversationType_APPSERVICE),
+//                                                @(ConversationType_PUBLICSERVICE),
+//                                                @(ConversationType_GROUP),
+//                                                @(ConversationType_SYSTEM)
+//                                                ]];
+//            //聚合会话类型
+//            [chatCtr setCollectionConversationType:@[ @(ConversationType_SYSTEM) ]];
+            chatCtr.isEnteredToCollectionViewController = YES;
+            [self.navigationController pushViewController:chatCtr animated:YES];
             
+            
+            
+        }
+            break;
             
         default:
             break;
