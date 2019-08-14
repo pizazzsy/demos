@@ -44,6 +44,7 @@
 		11A748142251E388002E9E01 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 11A748102251E388002E9E01 /* README.md */; };
 		11A748152251E388002E9E01 /* SocketHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A748122251E388002E9E01 /* SocketHelper.m */; };
 		11A748182251E607002E9E01 /* SoketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A748172251E607002E9E01 /* SoketViewController.m */; };
+		11C5B92122FD5414001F58B5 /* BlueToothLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C5B92022FD5414001F58B5 /* BlueToothLinkViewController.m */; };
 		A2D2CC6E7A744A4134A7EE9B /* libPods-demos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0050D057CE35136671FBE3B1 /* libPods-demos.a */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,8 @@
 		11A748122251E388002E9E01 /* SocketHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketHelper.m; sourceTree = "<group>"; };
 		11A748162251E607002E9E01 /* SoketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoketViewController.h; sourceTree = "<group>"; };
 		11A748172251E607002E9E01 /* SoketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoketViewController.m; sourceTree = "<group>"; };
+		11C5B91F22FD5414001F58B5 /* BlueToothLinkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueToothLinkViewController.h; sourceTree = "<group>"; };
+		11C5B92022FD5414001F58B5 /* BlueToothLinkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueToothLinkViewController.m; sourceTree = "<group>"; };
 		40F773EFD6F30E8A78E309D7 /* Pods-demos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demos.release.xcconfig"; path = "Pods/Target Support Files/Pods-demos/Pods-demos.release.xcconfig"; sourceTree = "<group>"; };
 		43F802D555C0D7EEA49915DB /* Pods-demos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demos/Pods-demos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +250,7 @@
 		04E40F6D2133AADA008DE865 /* demos */ = {
 			isa = PBXGroup;
 			children = (
+				11C5B91E22FD539E001F58B5 /* 蓝牙连接 */,
 				11770FE022D865CD009987AB /* demos.entitlements */,
 				11657F3C22D7152C006FA12D /* 即时通讯 */,
 				1190DBBC229F9D6500D8FCC1 /* 文件读取 */,
@@ -343,6 +347,15 @@
 				11A748172251E607002E9E01 /* SoketViewController.m */,
 			);
 			path = SocketHelp;
+			sourceTree = "<group>";
+		};
+		11C5B91E22FD539E001F58B5 /* 蓝牙连接 */ = {
+			isa = PBXGroup;
+			children = (
+				11C5B91F22FD5414001F58B5 /* BlueToothLinkViewController.h */,
+				11C5B92022FD5414001F58B5 /* BlueToothLinkViewController.m */,
+			);
+			path = "蓝牙连接";
 			sourceTree = "<group>";
 		};
 		298A75AACA53BC613A5CC9E4 /* Pods */ = {
@@ -467,6 +480,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-demos/Pods-demos-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
@@ -474,9 +488,11 @@
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RongCloud.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
@@ -484,6 +500,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCColor.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -524,6 +541,7 @@
 				04E40F8A2133CEEF008DE865 /* ColorGradientDemoViewController.m in Sources */,
 				04A113422186AF630041BB71 /* WaterfallFlowCell.m in Sources */,
 				04A1133E2186A4B30041BB71 /* WaterFlowLayout.m in Sources */,
+				11C5B92122FD5414001F58B5 /* BlueToothLinkViewController.m in Sources */,
 				04477A0421A502D600414AB5 /* PopViewController.m in Sources */,
 				04E40F792133AADA008DE865 /* demos.xcdatamodeld in Sources */,
 				11A748152251E388002E9E01 /* SocketHelper.m in Sources */,

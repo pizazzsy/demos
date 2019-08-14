@@ -8,10 +8,13 @@ target 'demos' do
   pod 'YYKit'
   pod 'MJRefresh'
   pod 'SDWebImage'
+  pod 'IQKeyboardManager'
+  pod 'SVProgressHUD'
   pod 'Bugly'
   pod 'CocoaAsyncSocket','7.4.2'
 #  pod 'RongCloudRTC', '2.9.19'
    pod 'RongCloudRTC', '~> 2.9.19'
+   
 #  pod 'RongCloudRTC/RongCallKit', '2.9.19'
 
   # Pods for demos

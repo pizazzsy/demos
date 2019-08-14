@@ -1,36 +1,65 @@
 PODS:
   - Bugly (2.5.0)
+  - CocoaAsyncSocket (7.4.2)
+  - IQKeyboardManager (6.4.0)
   - Masonry (1.1.0)
-  - MJRefresh (3.1.16)
-  - SDWebImage (4.4.6):
-    - SDWebImage/Core (= 4.4.6)
-  - SDWebImage/Core (4.4.6)
+  - MJRefresh (3.2.0)
+  - RongCloudIM/IMKit (2.9.19):
+    - RongCloudIM/IMLib
+  - RongCloudIM/IMLib (2.9.19)
+  - RongCloudRTC (2.9.19):
+    - RongCloudRTC/RongCallKit (= 2.9.19)
+    - RongCloudRTC/RongCallLib (= 2.9.19)
+  - RongCloudRTC/RongCallKit (2.9.19):
+    - RongCloudIM/IMKit (~> 2.9.19)
+    - RongCloudIM/IMLib (~> 2.9.19)
+    - RongCloudRTC/RongCallLib
+  - RongCloudRTC/RongCallLib (2.9.19):
+    - RongCloudIM/IMLib (~> 2.9.19)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
+  - SVProgressHUD (2.2.5)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - Bugly
+  - CocoaAsyncSocket (= 7.4.2)
+  - IQKeyboardManager
   - Masonry
   - MJRefresh
+  - RongCloudRTC (~> 2.9.19)
   - SDWebImage
+  - SVProgressHUD
   - YYKit
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Bugly
+    - CocoaAsyncSocket
+    - IQKeyboardManager
     - Masonry
     - MJRefresh
+    - RongCloudIM
+    - RongCloudRTC
     - SDWebImage
+    - SVProgressHUD
     - YYKit
 
 SPEC CHECKSUMS:
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
+  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
-  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  RongCloudIM: 5f78e8952d48b504723546d4183c89bb20dd61b2
+  RongCloudRTC: 2d0ab6b01989316bdf699cac351ae6d2a0e5a8b4
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: fe8b1837aa3dd30aa0a1bdd20369562ee8d3ca5c
+PODFILE CHECKSUM: 1e2dc9514a2f70e3ceb84320a9e6965afee0ebdb
 
 COCOAPODS: 1.5.0

@@ -17,6 +17,7 @@
 #import "SoketViewController.h"
 #import "FileOperationCtr.h"
 #import "ChatViewController.h"
+#import "BlueToothLinkViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -30,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.titleArrayM=@[@"wifidemo",@"下拉列表demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo",@"频道管理demo",@"自定义弹窗",@"tableview头部悬浮",@"文件读取",@"即时聊天"].mutableCopy;
+    self.titleArrayM=@[@"wifidemo",@"下拉列表demo",@"导航栏渐变demo",@"下拉放大拉伸效果demo",@"JS和OC交互demo",@"频道管理demo",@"自定义弹窗",@"tableview头部悬浮",@"文件读取",@"即时聊天",@"蓝牙连接"].mutableCopy;
     
     self.title = @"Demos";
     [self.view addSubview:self.tableView];
@@ -172,6 +173,9 @@
             
             
         }
+        case 10:{
+            [self.navigationController pushViewController:[[BlueToothLinkViewController alloc]init] animated:YES ];
+        }
             break;
             
         default:
@@ -180,7 +184,7 @@
 }
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }

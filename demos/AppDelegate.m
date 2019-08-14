@@ -24,7 +24,7 @@
     BTabBarController *btVC = [[BTabBarController alloc]init];
     [self.window makeKeyAndVisible];
     self.window.rootViewController = btVC;
-
+    [IQKeyboardManager sharedManager].enable = YES;
     
     [Bugly startWithAppId:@"67e1b343b8"];
     

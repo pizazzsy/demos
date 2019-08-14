@@ -24,6 +24,8 @@
 #import <RongIMLib/RongIMLib.h>
 #import <RongCallKit/RongCallKit.h>
 #import <RongCallLib/RongCallLib.h>
+#import <IQKeyboardManager.h>
+#import <SVProgressHUD.h>
 
 
 #endif /* PrefixHeader_pch */
