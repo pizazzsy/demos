@@ -1,2 +1,2 @@
-*.h linguist-language=Object-C
-*.m linguist-language=Object-C
+*.h linguist-language=Objective-C 
+*.m linguist-language=Objective-C 
