@@ -10,8 +10,9 @@
 #import "BTabBarController.h"
 #import <Bugly/Bugly.h>
 #import <PushKit/PushKit.h>
-
-@interface AppDelegate ()<RCConnectionStatusChangeDelegate,RCIMReceiveMessageDelegate,RCIMUserInfoDataSource,PKPushRegistryDelegate>
+#import <JPUSHService.h>
+#import  <UserNotifications/UserNotifications.h>
+@interface AppDelegate ()<RCConnectionStatusChangeDelegate,RCIMReceiveMessageDelegate,RCIMUserInfoDataSource,PKPushRegistryDelegate,UNUserNotificationCenterDelegate>
 
 @end
 
@@ -28,10 +29,90 @@
     
     [Bugly startWithAppId:@"67e1b343b8"];
     
-    [self RongCloudIMConfig];
-    [self PushConfig:application];
-   
+//    [self RongCloudIMConfig];
+//    [self PushConfig:application];
+//    [self initJpushWithlaunchOptions:launchOptions];
+//    [self registPush:application andOptions:launchOptions];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) {
+
+    #ifdef NSFoundationVersionNumber_iOS_9_x_Max
+
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + UNAuthorizationOptionBadge)
+
+    completionHandler:^(BOOL granted, NSError * _Nullable error) {
+
+    if (granted) {
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [application registerForRemoteNotifications];
+            });
+        });
+
+    }
+
+    }];
+
+    center.delegate = self;
+
+    #endif
+
+    }
+
+    else if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+
+    UIUserNotificationType myTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:myTypes categories:nil];
+
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+
+    }
+
+    NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+
+    if (userInfo) {
+
+    NSLog(@"从消息启动:%@",userInfo);
+
+    //        [BPush handleNotification:userInfo];
+
+    }
+
+    //角标清0
+
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+
     return YES;
+
+}
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary * _Nonnull)userInfo fetchCompletionHandler:(void (^ _Nonnull)(UIBackgroundFetchResult))completionHandler{
+    NSLog(@"didReceiveRemoteNotification:%@",userInfo);
+    completionHandler(UIBackgroundFetchResultNewData);
+
+}
+
+-(void)registPush:(UIApplication *)application andOptions:(NSDictionary *)launchOptions{
+    
+    UNUserNotificationCenter * center = [UNUserNotificationCenter currentNotificationCenter];
+    [center setDelegate:self];
+    UNAuthorizationOptions type = UNAuthorizationOptionBadge|UNAuthorizationOptionSound|UNAuthorizationOptionAlert;
+    [center requestAuthorizationWithOptions:type completionHandler:^(BOOL granted, NSError * _Nullable error) {
+    if (granted) {
+        NSLog(@"注册成功");
+    }else{
+        NSLog(@"注册失败");
+    }}];
+    // 注册获得device Token
+    [application registerForRemoteNotifications];
+}
+-(void)initJpushWithlaunchOptions:(NSDictionary *)launchOptions{
+    [JPUSHService setupWithOption:launchOptions appKey:@"e28e7ddfaba0f4e1567f8acc"
+                           channel:@"0"
+                  apsForProduction:0
+             advertisingIdentifier:@""];
 }
 //初始化融云SDK并
 -(void)RongCloudIMConfig{
@@ -49,6 +130,30 @@
         NSLog(@"token错误");
     }];
 }
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+
+NSLog(@"willPresentNotification:%@",notification.request.content.title);
+
+// 这里真实需要处理交互的地方
+
+// 获取通知所带的数据
+
+NSString *apsContent = [notification.request.content.userInfo objectForKey:@"aps"];
+
+NSLog(@"%@",apsContent);
+
+}
+
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler{
+
+//处理推送过来的数据
+//[self handlePushMessage:response.notification.request.content.userInfo];
+    NSLog(@"处理推送过来的数据");
+    completionHandler();
+
+}
+
 //注册Voip服务
 -(void)RegistryVoipToken{
         PKPushRegistry *pushRegistry = [[PKPushRegistry alloc]  initWithQueue:dispatch_get_main_queue()];
@@ -87,7 +192,10 @@
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token =[[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<" withString:@""] stringByReplacingOccurrencesOfString:@">" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    [[RCIMClient sharedRCIMClient] setDeviceToken:token];
+    NSLog(@"token:%@",token);
+//    [[RCIMClient sharedRCIMClient] setDeviceToken:token];
+//    [JPUSHService registerDeviceToken:deviceToken];
+
 }
 
 - (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion

@@ -2,6 +2,9 @@ PODS:
   - Bugly (2.5.0)
   - CocoaAsyncSocket (7.4.2)
   - IQKeyboardManager (6.4.0)
+  - JCore (2.3.4)
+  - JPush (3.3.4):
+    - JCore (< 3.0.0, >= 2.0.0)
   - Masonry (1.1.0)
   - MJRefresh (3.2.0)
   - RongCloudIM/IMKit (2.9.19):
@@ -20,6 +23,7 @@ PODS:
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
   - SVProgressHUD (2.2.5)
+  - WoodPeckeriOS (1.2.6)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -28,11 +32,13 @@ DEPENDENCIES:
   - Bugly
   - CocoaAsyncSocket (= 7.4.2)
   - IQKeyboardManager
+  - JPush
   - Masonry
   - MJRefresh
   - RongCloudRTC (~> 2.9.19)
   - SDWebImage
   - SVProgressHUD
+  - WoodPeckeriOS
   - YYKit
 
 SPEC REPOS:
@@ -47,19 +53,26 @@ SPEC REPOS:
     - SDWebImage
     - SVProgressHUD
     - YYKit
+  trunk:
+    - JCore
+    - JPush
+    - WoodPeckeriOS
 
 SPEC CHECKSUMS:
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
+  JCore: 8aa29dc57ba3730dd9fe7544ce1a4e1cbe221135
+  JPush: 6188b8f375a7113f4b62bb33e96e280dbcfa06be
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   RongCloudIM: 5f78e8952d48b504723546d4183c89bb20dd61b2
   RongCloudRTC: 2d0ab6b01989316bdf699cac351ae6d2a0e5a8b4
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  WoodPeckeriOS: c24e721bf0914ac4149e3914df64e46277c82417
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 1e2dc9514a2f70e3ceb84320a9e6965afee0ebdb
+PODFILE CHECKSUM: 090c1a4b38e4939861b306136bc5b1814df6a995
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.9.3

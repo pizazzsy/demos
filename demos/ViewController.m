@@ -169,10 +169,8 @@
 //            [chatCtr setCollectionConversationType:@[ @(ConversationType_SYSTEM) ]];
             chatCtr.isEnteredToCollectionViewController = YES;
             [self.navigationController pushViewController:chatCtr animated:YES];
-            
-            
-            
         }
+            break;
         case 10:{
             [self.navigationController pushViewController:[[BlueToothLinkViewController alloc]init] animated:YES ];
         }

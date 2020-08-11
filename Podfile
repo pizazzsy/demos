@@ -14,6 +14,10 @@ target 'demos' do
   pod 'CocoaAsyncSocket','7.4.2'
 #  pod 'RongCloudRTC', '2.9.19'
    pod 'RongCloudRTC', '~> 2.9.19'
+   pod 'WoodPeckeriOS', :configurations => ['Debug']
+   pod 'JPush' 
+   # for macOS project
+   # pod 'WoodpeckerMacOS', :configurations => ['Debug']
    
 #  pod 'RongCloudRTC/RongCallKit', '2.9.19'
 
