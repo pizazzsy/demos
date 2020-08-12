@@ -22,8 +22,15 @@
     self.bestAttemptContent = [request.content mutableCopy];
     
     // Modify the notification content here...
-    self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
-    
+//    self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
+    NSLog(@"收到推送消息，可进行处理");
+
+    // 重写一些东西
+    self.bestAttemptContent.title = @"我是标题";
+    self.bestAttemptContent.subtitle = @"我是子标题";
+    self.bestAttemptContent.body = @"来自徐不同";
+   
+    self.bestAttemptContent.categoryIdentifier = @"myNotificationCategory";
     self.contentHandler(self.bestAttemptContent);
 }
 

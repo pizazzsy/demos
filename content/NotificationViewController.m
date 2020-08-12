@@ -2,7 +2,7 @@
 //  NotificationViewController.m
 //  content
 //
-//  Created by 承启通 on 2020/8/10.
+//  Created by 承启通 on 2020/8/11.
 //  Copyright © 2020 tianyixin. All rights reserved.
 //
 
@@ -25,8 +25,9 @@
 
 - (void)didReceiveNotification:(UNNotification *)notification {
 //    self.label.text = notification.request.content.body;
-    self.label.text = @"haha";
+    self.label.text = @"哈哈，成功啦";
 
+    
 }
 
 @end

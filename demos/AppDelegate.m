@@ -7,12 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "BTabBarController.h"
-#import <Bugly/Bugly.h>
-#import <PushKit/PushKit.h>
-#import <JPUSHService.h>
 #import  <UserNotifications/UserNotifications.h>
-@interface AppDelegate ()<RCConnectionStatusChangeDelegate,RCIMReceiveMessageDelegate,RCIMUserInfoDataSource,PKPushRegistryDelegate,UNUserNotificationCenterDelegate>
+
+
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
@@ -22,208 +20,110 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    BTabBarController *btVC = [[BTabBarController alloc]init];
-    [self.window makeKeyAndVisible];
-    self.window.rootViewController = btVC;
-    [IQKeyboardManager sharedManager].enable = YES;
-    
-    [Bugly startWithAppId:@"67e1b343b8"];
-    
-//    [self RongCloudIMConfig];
-//    [self PushConfig:application];
-//    [self initJpushWithlaunchOptions:launchOptions];
-//    [self registPush:application andOptions:launchOptions];
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) {
-
-    #ifdef NSFoundationVersionNumber_iOS_9_x_Max
-
-    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
-
-    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + UNAuthorizationOptionBadge)
-
-    completionHandler:^(BOOL granted, NSError * _Nullable error) {
-
-    if (granted) {
-
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [application registerForRemoteNotifications];
-            });
-        });
-
-    }
-
-    }];
-
-    center.delegate = self;
-
-    #endif
-
-    }
-
-    else if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
-
-    UIUserNotificationType myTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:myTypes categories:nil];
-
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-
-    }
-
-    NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-
-    if (userInfo) {
-
-    NSLog(@"从消息启动:%@",userInfo);
-
-    //        [BPush handleNotification:userInfo];
-
-    }
-
-    //角标清0
-
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-
+//    BTabBarController *btVC = [[BTabBarController alloc]init];
+//    [self.window makeKeyAndVisible];
+//    self.window.rootViewController = btVC;
+//    [IQKeyboardManager sharedManager].enable = YES;
+//    
+//    [Bugly startWithAppId:@"67e1b343b8"];
+    [self registPush:application andOptions:launchOptions];
     return YES;
 
 }
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary * _Nonnull)userInfo fetchCompletionHandler:(void (^ _Nonnull)(UIBackgroundFetchResult))completionHandler{
-    NSLog(@"didReceiveRemoteNotification:%@",userInfo);
-    completionHandler(UIBackgroundFetchResultNewData);
 
-}
 
 -(void)registPush:(UIApplication *)application andOptions:(NSDictionary *)launchOptions{
-    
-    UNUserNotificationCenter * center = [UNUserNotificationCenter currentNotificationCenter];
-    [center setDelegate:self];
-    UNAuthorizationOptions type = UNAuthorizationOptionBadge|UNAuthorizationOptionSound|UNAuthorizationOptionAlert;
-    [center requestAuthorizationWithOptions:type completionHandler:^(BOOL granted, NSError * _Nullable error) {
-    if (granted) {
-        NSLog(@"注册成功");
-    }else{
-        NSLog(@"注册失败");
-    }}];
-    // 注册获得device Token
-    [application registerForRemoteNotifications];
-}
--(void)initJpushWithlaunchOptions:(NSDictionary *)launchOptions{
-    [JPUSHService setupWithOption:launchOptions appKey:@"e28e7ddfaba0f4e1567f8acc"
-                           channel:@"0"
-                  apsForProduction:0
-             advertisingIdentifier:@""];
-}
-//初始化融云SDK并
--(void)RongCloudIMConfig{
-//     NSString*token=@"EqTw+3hSJ3yueQPs6ugNhuRaIz1bkaOKFNGuScijx7lKhnps3RW6SQezWAZswTDYr2CqoiyNU8gph32GIqA3cw==";//789456
-        NSString*token=@"Gk7kC/Q+ym/arn193zwxsuetBHUbqfBT7BxSq5Y1ZV/k/ZggG8XOuA6nFcavARjNvpYTMtgfyVdj03TaszEbtw==";//456789
-    [[RCIM sharedRCIM] initWithAppKey:@"8brlm7uf8j5h3"];
-    [[RCIM sharedRCIM] setUserInfoDataSource:self];
-    [RCIM sharedRCIM].receiveMessageDelegate = self;
-    [RCIMClient sharedRCIMClient].logLevel=RC_Log_Level_Verbose;
-    [[RCIM sharedRCIM] connectWithToken:token     success:^(NSString *userId) {
-        NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
-    } error:^(RCConnectErrorCode status) {
-        NSLog(@"登陆的错误码为:%ld", (long)status);
-    } tokenIncorrect:^{
-        NSLog(@"token错误");
-    }];
-}
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
-
-NSLog(@"willPresentNotification:%@",notification.request.content.title);
-
-// 这里真实需要处理交互的地方
-
-// 获取通知所带的数据
-
-NSString *apsContent = [notification.request.content.userInfo objectForKey:@"aps"];
-
-NSLog(@"%@",apsContent);
-
-}
-
-
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler{
-
-//处理推送过来的数据
-//[self handlePushMessage:response.notification.request.content.userInfo];
-    NSLog(@"处理推送过来的数据");
-    completionHandler();
-
-}
-
-//注册Voip服务
--(void)RegistryVoipToken{
-        PKPushRegistry *pushRegistry = [[PKPushRegistry alloc]  initWithQueue:dispatch_get_main_queue()];
-        pushRegistry.delegate = self;
-        pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
-}
--(void)PushConfig:(UIApplication *)application{
-    if ([application
-         respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        //注册推送, 用于iOS8以及iOS8之后的系统
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings
-                                                settingsForTypes:(UIUserNotificationTypeBadge |
-                                                                  UIUserNotificationTypeSound |
-                                                                  UIUserNotificationTypeAlert)
-                                                categories:nil];
-        [application registerUserNotificationSettings:settings];
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 10.0) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        center.delegate = self;
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (!error) {
+                NSLog(@"request authorization succeeded!");
+            }
+        }];
+        [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+                  NSLog(@"========%@",settings);
+        }];
     } else {
-        //注册推送，用于iOS8之前的系统
-        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge |
-        UIRemoteNotificationTypeAlert |
-        UIRemoteNotificationTypeSound;
-        [application registerForRemoteNotificationTypes:myTypes];
+        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+            //IOS8，创建UIUserNotificationSettings，并设置消息的显示类类型
+            UIUserNotificationSettings *notiSettings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound) categories:nil];
+            [application registerUserNotificationSettings:notiSettings];
+        }
     }
-}
-//- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-//    NSString *str = [NSString stringWithFormat:@"%@",credentials.token];
-//    NSString *voipToken = [[[str stringByReplacingOccurrencesOfString:@"<" withString:@""]
-//                           stringByReplacingOccurrencesOfString:@">" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    [[NSUserDefaults standardUserDefaults] setObject:voipToken forKey:@"rcVoIPDeviceToken"];
-//    //上传token处理
-//}
+    UNNotificationAction * likeAction;              //喜欢
+    UNNotificationAction * ingnoreAction;           //取消
+    UNNotificationAction * emojiAction;             //自定义表情
+    UNTextInputNotificationAction * inputAction;    //文本输入
+    
+    likeAction = [UNNotificationAction actionWithIdentifier:@"action_like"
+                                                      title:@"点赞"
+                                                    options:UNNotificationActionOptionForeground];
 
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
-    [application registerForRemoteNotifications];
+    inputAction = [UNTextInputNotificationAction actionWithIdentifier:@"action_input"
+                                                                title:@"评论"
+                                                              options:UNNotificationActionOptionForeground
+                                                 textInputButtonTitle:@"发送"
+                                                 textInputPlaceholder:@"说点什么"];
+    
+    emojiAction = [UNNotificationAction actionWithIdentifier:@"action_emoji"
+                                                       title:@"表情"
+                                                     options:UNNotificationActionOptionForeground];
+    
+    ingnoreAction = [UNNotificationAction actionWithIdentifier:@"action_cancel"
+                                                         title:@"忽略"
+                                                       options:UNNotificationActionOptionForeground];
+
+    UNNotificationCategory * category;
+    category = [UNNotificationCategory categoryWithIdentifier:@"myNotificationCategory"
+                                                         actions:@[likeAction, inputAction, ingnoreAction]
+                                               intentIdentifiers:@[]
+                                                         options:UNNotificationCategoryOptionNone];
+       
+    NSSet * sets = [NSSet setWithObjects:category, nil];
+    [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:sets];
+       
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
+
+#pragma mark - 申请通知权限
+
+
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token =[[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<" withString:@""] stringByReplacingOccurrencesOfString:@">" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"token:%@",token);
-//    [[RCIMClient sharedRCIMClient] setDeviceToken:token];
-//    [JPUSHService registerDeviceToken:deviceToken];
+}
+//获取DeviceToken失败
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    NSLog(@"[DeviceToken Error]:%@\n",error.description);
+}
+#pragma mark - iOS10 收到通知（本地和远端） UNUserNotificationCenterDelegate
 
+//App处于前台接收通知时
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+
+    completionHandler(UNNotificationPresentationOptionBadge|
+                      UNNotificationPresentationOptionSound|
+                      UNNotificationPresentationOptionAlert);
+}
+    
+
+//App通知的点击事件
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
+
+    completionHandler(); // 系统要求执行这个方法
+}
+#pragma mark -iOS 10之前收到通知
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"iOS6及以下系统，收到通知:%@", userInfo);
 }
 
-- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion
-{
-    //通过代理方法获得的userid去获取详细信息（）
-    RCUserInfo *user = [[RCUserInfo alloc]init];
-    user.userId = userId;
-    user.name =userId;
-    user.portraitUri = @"头像";
-    return completion(user);
-}
--(void)onConnectionStatusChanged:(RCConnectionStatus)status{
-    if (status == ConnectionStatus_Connected) {
-        NSLog(@"融云服务器连接成功!");
-    } else  {
-        if (status == ConnectionStatus_SignUp) {
-            NSLog(@"融云服务器断开连接!");
-        } else {
-            NSLog(@"融云服务器连接失败!");
-        }
-    }
-}
-- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left{
-    if ([message.content isMemberOfClass:[RCTextMessage class]]) {
-        RCTextMessage *testMessage = (RCTextMessage *)message.content;
-        NSLog(@"消息内容：%@", testMessage.content);
-    }
-    NSLog(@"还剩余的未接收的消息数：%d", left);
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    NSLog(@"iOS7及以上系统，收到通知:%@", userInfo);
+    completionHandler(UIBackgroundFetchResultNewData);
+    //此处省略一万行需求代码。。。。。。
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
